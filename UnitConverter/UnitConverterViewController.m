@@ -1,11 +1,3 @@
-//
-//  UnitConverterViewController.m
-//  UnitConverter
-//
-//  Created by Neil Smyth on 9/17/13.
-//  Copyright (c) 2013 Neil Smyth. All rights reserved.
-//
-
 #import "UnitConverterViewController.h"
 
 @interface UnitConverterViewController ()
@@ -17,7 +9,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,6 +25,15 @@
     NSString *resultString = [[NSString alloc]
                               initWithFormat: @"Celsius %f", celsius];
     _resultLabel.text = resultString;
-
 }
+
+- (IBAction)convertDistance:(id)sender {
+    double miles = [_distanceText.text doubleValue];
+    double kilometers = miles * 1.60934; // Conversion factor
+
+    NSString *resultString = [[NSString alloc]
+                              initWithFormat: @"Kilometers %f", kilometers];
+    _distanceResultLabel.text = resultString;
+}
+
 @end
